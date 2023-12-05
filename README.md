@@ -1,85 +1,36 @@
-# React SaaS Template
-Remains of a SaaS business I once tried to build. Now transformed into a template for building an SaaS/admin application using React + Material-UI.
+# 포트폴리오 사이트 만들기 프로젝트
 
-[**Check out the demo**](https://reactsaastemplate.com)
+이 튜토리얼은 하나의 웹사이트를 여러 가지 프레임워크를 사용하여 만드는 방법에 대해 소개합니다.
+웹 개발자들은 종종 다양한 프레임워크를 이용하여 작업하게 됩니다.
+이 과정에서 여러 가지 프레임워크들을 어떻게 적용하는지 알아보고,
+각 프레임워크들의 장단점을 비교 분석하며 학습하게 됩니다.
 
-![Node.js CI](https://github.com/dunky11/react-saas-template/workflows/Node.js%20CI/badge.svg)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+1. [vite](https://github.com/webstoryboy/port2023-vite)를 이용하여 사이트를 제작합니다.
+2. [react.js](https://github.com/webstoryboy/port2023-react)를 이용하여 사이트를 제작합니다.
+3. [vue.js](https://github.com/webstoryboy/port2023-vue)를 이용하여 사이트를 제작합니다.
+4. [next.js](https://github.com/webstoryboy/port2023-next)를 이용하여 사이트를 제작합니다.
 
-[<img src="/.github/gifs/showcase.gif">](https://reactsaastemplate.com "Go to demo website")
+이 튜토리얼은 포트폴리오 컨셉의 사이트를 4가지 버전으로 반복하여 만들어 보면서, 프론트앤드 개발의 시발점이 될 수 있는 튜토리업입니다.
+자바스크립트 프레임워크를 통해 사이트를 효율적으로 만들어 보는 방법을 익힙니다.
+깊이 배우기 보다는 다양한 방법을 사용하여 흐름과 감각을 익히기 위한 튜토리얼입니다.
 
+## 완성작 보기
 
-## Getting Started
+미리보기 :
 
-### Prerequisites
+## 사용 스택
 
-#### Node.js 12+ (versions below could work, but are not tested)
+- react(https://ko.legacy.reactjs.org/) 를 사용하여 사이트를 번들링하고 관리합니다.
+- gsap(https://greensock.com/gsap) 를 이용하여 패럴랙스 효과를 줍니다.
+- lenis(https://lenis.studiofreight.com/) 를 이용하여 스므스 효과를 구현합니다.
+- netlify(https://www.netlify.com/) 를 통해 사이트를 배포합니다.
+- git(https://github.com/) 을 사용하여 파일을 관리합니다.
+- HTML, CSS 기반으로 웹사이트의 기본 레이아웃 설계하고, 웹 표준 및 웹 접근성을 준수하여 작업합니다. [ARIA(Accessible Rich Internet Applications)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
 
-* Linux:
+## 프로젝트 실행
 
-   ```
-   sudo apt install nodejs npm
-   ```
-
-* Windows or macOS:
-
-   https://nodejs.org/en/
-
-### Installing
-
-1. Clone the repository
-
-   ```
-   git clone https://github.com/dunky11/react-saas-template
-   ```
-2. Install dependencies, this can take a minute
-
-   ```
-   cd react-saas-template
-   npm install
-   ```
-3. Start the local server
-
-   ```
-   npm start
-   ```
-
-Your browser should now open and show the app. Otherwise open http://localhost:3000/ in your browser. Editing files will automatically refresh the page.
-
-### What to do next?
-
-If you are new to React, you should watch a [basic React tutorial](https://www.youtube.com/results?search_query=react+tutorial) first.
-
-If you know React, then most of the information you need is in the [Material-UI documentation](https://material-ui.com/getting-started/usage/).
-
-You can go into [src/theme.js](/src/theme.js) and change the primary and secondary color codes at the top of the script to the values you like and some magic will happen.
-
-## Deployment
-
-If you are satisfied with the state of your website you can run:
-
-```
-npm run build 
-```
-
-It will create a folder named build with your compiled project inside. After that copy its content into your webroot and you are ready to go.
-
-## Built With
-
-* [Create-React-App](https://github.com/facebook/create-react-app) - Used to bootstrap the development
-* [Material-UI](https://github.com/mui-org/material-ui) - Material Design components
-* [React-Router](https://github.com/ReactTraining/react-router) - Routing of the app
-* [Pace](https://github.com/HubSpot/pace) - Loading bar at the top
-* [Emoji-Mart](https://github.com/missive/emoji-mart) - Picker for the emojis
-* [React-Dropzone](https://github.com/react-dropzone/react-dropzone) - File drop component for uploads
-* [Recharts](https://github.com/recharts/recharts) - Charting library I used for the statistics
-* [Aos](https://github.com/michalsnik/aos) - Animations based on viewport
-* [React-Cropper](https://github.com/roadmanfong/react-cropper) - Cropper for the image uploads
-* [React-Stripe-js](https://github.com/stripe/react-stripe-js) - Stripes payment elements
-
-## Contribute
-Show your support by ⭐ the project. Pull requests are always welcome.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/dunky11/react-saas-template/blob/master/LICENSE) file for details.
+- react를 설치합니다. `npx create-react-app 타이틀`
+- react-router-dom을 설치합니다. `npm install react-router-dom`
+- sass를 설치합니다. `npm install sass`
+- gsap를 설치합니다. `npm install gsap`
+- lenis를 설치합니다. `npm install @studio-freight/lenis`
