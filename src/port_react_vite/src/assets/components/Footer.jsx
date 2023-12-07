@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="footer__info">
             <div className="left">
               <div className="title">
-                <a href="#!">sign up</a>
+                <a href="/join">sign up</a>
               </div>
               <p>회원가입을 하시면 댓글과 게시판 기능을 이용할 수 있습니다.</p>
             </div>
