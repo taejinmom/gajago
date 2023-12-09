@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import { headerNav } from '../constants'
 
 const Header = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
   const toggleMenu = () => {
-    setShow((prevShow) => !prevShow);
-  };
+    setShow(prevShow => !prevShow)
+  }
 
   return (
     <header id="header" role="banner">
@@ -16,7 +17,7 @@ const Header = () => {
           </a>
         </div>
         <nav
-          className={`header__nav ${show ? "show" : ""}`}
+          className={`header__nav ${show ? 'show' : ''}`}
           role="navigation"
           aria-label="메인 메뉴"
         >
@@ -32,7 +33,7 @@ const Header = () => {
           className="header__nav__mobile"
           id="headerToggle"
           aria-controls="primary-menu"
-          aria-expanded={show ? "true" : "false"}
+          aria-expanded={show ? 'true' : 'false'}
           role="button"
           tabIndex="0"
           onClick={toggleMenu}
@@ -41,7 +42,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
