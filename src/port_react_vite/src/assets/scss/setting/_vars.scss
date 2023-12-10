@@ -1,7 +1,7 @@
 :root {
-  --mainEng-font: "Montserrat";
-  --mainKor-font: "nanumSquareNeo";
-  --mainNum-font: "gmarket";
+  --mainEng-font: 'Montserrat';
+  --mainKor-font: 'nanumSquareNeo';
+  --mainNum-font: 'gmarket';
 
   --mainBg-color: #f3ede8;
   --subBg100: #cdc0b1;
@@ -29,8 +29,8 @@
   -webkit-text-size-adjust: 100%;
 
   @media (max-width: 800px) {
-      font-size: 14px;
-      line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 

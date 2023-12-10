@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { headerNav } from '../constants'
 
-const Header = () => {
+const Header = props => {
   const [show, setShow] = useState(false)
 
   const toggleMenu = () => {

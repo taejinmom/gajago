@@ -1,4 +1,4 @@
-import { introText } from "../constants";
+import { introText } from '../constants'
 const Intro = () => {
   return (
     <section id="intro">
@@ -31,7 +31,7 @@ const Intro = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Intro;
+export default Intro

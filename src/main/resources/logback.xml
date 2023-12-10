@@ -1,12 +1,11 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n</pattern>
+            <pattern>%boldYellow(%d{MM-dd HH:mm:ss}) %green([%thread]) %logger{5} %highlight(%-5level) %boldWhite([%C{2}.%M:%yellow(%L)]) - %msg %n</pattern>
         </encoder>
     </appender>
 
     <logger name="jdbc" level="OFF"/>
-
     <logger name="jdbc.sqlonly" level="OFF"/>
     <logger name="jdbc.sqltiming" level="DEBUG"/>
     <logger name="jdbc.audit" level="OFF"/>

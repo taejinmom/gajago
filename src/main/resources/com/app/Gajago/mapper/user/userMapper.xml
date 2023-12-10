@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.Gajago.mapper.user.UserMapper">
+    <select id="loginCheck" resultType="int">
+        SELECT
+            1
+        FROM
+            T_USER
+        WHERE 1=1
+        AND login_id = #{login_id}
+        AND login_pw = #{login_pw}
+    </select>
+    <insert id="userInsert" parameterType="com.app.Gajago.dto.user.UserDto">
+        insert into T_USER(login_id,login_pw,name,email)
+        values(#{login_id},#{login_pw},#{name},#{email}
+    </insert>
+</mapper>
