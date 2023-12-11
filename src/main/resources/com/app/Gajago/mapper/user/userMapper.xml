@@ -12,7 +12,7 @@
         AND login_pw = #{login_pw}
     </select>
     <insert id="userInsert" parameterType="com.app.Gajago.dto.user.UserDto">
-        insert into T_USER(login_id,login_pw,name,email)
-        values(#{login_id},#{login_pw},#{name},#{email}
+        insert into T_USER(id,login_id,login_pw,name,email)
+        values(#{id},#{login_id},#{login_pw},#{name},#{email})
     </insert>
 </mapper>

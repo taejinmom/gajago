@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class UserMgr {
     @Autowired
@@ -14,7 +16,10 @@ public class UserMgr {
     public String passwordEncoded(String password){
         return passwordEncoder.encode(password);
     }
-    public boolean passwordDecoded(String password){
-        return passwordEncoder.matches("123",password);
+    public boolean passwordDecoded(String oldPass,String newPass){
+        return passwordEncoder.matches(oldPass,newPass);
+    }
+    public String makeUUID(){
+        return UUID.randomUUID().toString().replaceAll("-","");
     }
 }

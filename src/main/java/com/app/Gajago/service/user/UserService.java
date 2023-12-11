@@ -39,6 +39,8 @@ public class UserService implements UserRepository {
     public void userInsert(UserDto user) {
         System.out.println("UserService.userInsert >>> " + user);
         String password = userMgr.passwordEncoded(user.getLogin_pw());
+        String uuid = userMgr.makeUUID();
+        user.setId(uuid);
         user.setLogin_pw(password);
         userMapper.userInsert(user);
     }

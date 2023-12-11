@@ -16,20 +16,25 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import axios from 'axios'
 import { flushSync } from 'react-dom'
+import JoinData, { joinItem } from '../../../constants/join/JoinData'
 
 const Join = () => {
   const theme = createTheme()
   const [checked, setChecked] = useState(false)
   const [passwordChecked, setPasswordChecked] = useState(false)
   const [repeatPassword, setRepeatPassword] = useState('')
-  const password1 = useRef()
-  const password2 = useRef()
+  const [idChk, setIdChk] = useState(false)
+  const [pwChk, setPwChk] = useState(false)
+  const [EmailChk, setEmailChk] = useState(false)
+  const [nameChk, setNameChk] = useState(false)
   const [joinData, setJoinData] = useState({
     login_id: '',
     login_pw: '',
+    login_pw_chk: '',
     email: '',
     name: '',
   })
+  console.log('check!!', pwChk)
   // 패스워드 재입력 체크
   const handlePassCheck = e => {
     setRepeatPassword(e.target.value)
@@ -52,11 +57,9 @@ const Join = () => {
         [e.target.name]: e.target.value,
       })
     }
-
     console.log(
       `password >> ${joinData.login_pw} // repeat >> ${repeatPassword}`
     )
-    console.log(`password1 == ${password1.current.value}`)
     if (joinData.login_pw !== repeatPassword) {
       console.log('check!!')
       setPasswordChecked(true)
@@ -69,45 +72,6 @@ const Join = () => {
       console.log(response)
     })
   }, [])
-  const joinItem = [
-    {
-      name: 'login_id',
-      id: 'loginId',
-      label: '아이디',
-      type: 'text',
-      helpeText: 'ID를 입력해주세요',
-    },
-    {
-      name: 'login_pw',
-      id: 'loginPw',
-      label: '비밀번호',
-      type: 'password',
-      helpeText: 'Password를 입력해주세요',
-      ref: password1,
-    },
-    {
-      name: 'loginPwRepeat',
-      id: 'loginPwRepeat',
-      label: '비밀번호 재입력',
-      type: 'password',
-      helpeText: 'Password가 일치하지않습니다',
-      ref: password2,
-    },
-    {
-      name: 'email',
-      id: 'email',
-      label: '이메일 주소',
-      type: 'email',
-      helpeText: '',
-    },
-    {
-      name: 'name',
-      id: 'loginId',
-      label: '이름',
-      type: 'text',
-      helpeText: '이름을 입력해주세요',
-    },
-  ]
 
   // 패스워드 재입력 테스트
 
@@ -121,18 +85,33 @@ const Join = () => {
 
   // form 전송
   const handleSubmit = e => {
-    if (e.target[11].checked === false) {
-      console.log('joinData ', joinData)
-      console.log('repeatPassword ', repeatPassword)
-      e.preventDefault()
+    e.preventDefault()
+    if (joinData.login_pw !== joinData.login_pw_chk) {
+      setPwChk(pwChk, true)
+      return
     } else {
-      axios.post('api/logintest').then(response => {
-        console.log(response)
-      })
-      e.preventDefault()
+      setPwChk(pwChk, false)
     }
-
-    //
+    if (joinData.login_id === '') {
+      setIdChk(idChk, true)
+      return
+    } else {
+      setIdChk(idChk, false)
+    }
+    if (joinData.name === '') {
+      setNameChk(nameChk, true)
+      return
+    } else {
+      setNameChk(nameChk, true)
+    }
+    axios
+      .post('api/userInsert', joinData)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   return (
@@ -159,6 +138,7 @@ const Join = () => {
           >
             <FormControl component="fieldset" variant="standard">
               <Grid container spacing={2}>
+                <JoinData />
                 {joinItem.map((e, idx) => {
                   return (
                     <Grid item xs={12} key={idx}>
@@ -171,13 +151,12 @@ const Join = () => {
                         type={e.type}
                         helperText={e.helpeText}
                         ref={e.ref}
-                        error={
-                          e.name === 'loginPwRepeat' ? passwordChecked : false
-                        }
-                        onBlur={
-                          e.name === 'loginPwRepeat'
-                            ? handlePassCheck
-                            : handleChange
+                        error={true}
+                        onChange={e =>
+                          setJoinData({
+                            ...joinData,
+                            [e.target.name]: e.target.value,
+                          })
                         }
                       />
                     </Grid>
